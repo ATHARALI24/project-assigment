@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SampleForm;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('index');
 });
+
+// add profile route
+route::POST('action',[SampleForm::class,'add'])->middleware('only.ajax');
+
+
+// delete profile route
+route::POST('delete',[SampleForm::class,'delete_data'])->middleware('only.ajax');
+
+// edit profile route
+route::POST('edit',[SampleForm::class,'edit_data'])->middleware('only.ajax');
